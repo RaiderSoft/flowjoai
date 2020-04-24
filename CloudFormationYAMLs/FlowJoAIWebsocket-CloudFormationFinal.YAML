@@ -1,0 +1,520 @@
+AWSTemplateFormatVersion: 2010-09-09
+Metadata:
+  'AWS::CloudFormation::Designer':
+    9324f40b-1b8b-44f9-b62d-5783c0522204:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 500
+        'y': 180
+      z: 0
+      embeds: []
+    47de0fec-cd5d-4ef8-a81d-e7ec7a6a3f0f:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: -70
+        'y': 310
+      z: 0
+      embeds: []
+    247248d5-2f96-409a-8185-f88ebb8803b2:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 150
+        'y': 310
+      z: 0
+      embeds: []
+    df3e6da2-dd4d-47ff-8f4b-caad248be434:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 380
+        'y': 310
+      z: 0
+      embeds: []
+    51f2ec74-5639-4672-b234-ef9bf5734fa8:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 610
+        'y': 310
+      z: 0
+      embeds: []
+    711f65c0-fa11-4d1d-89a2-c3abb54d73da:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 840
+        'y': 310
+      z: 0
+      embeds: []
+    717fb9d4-473f-4beb-935f-f44ba714dbe0:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 1070
+        'y': 310
+      z: 0
+      embeds: []
+    5821bb65-2630-40ac-b625-30fd69de029e:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: -10
+        'y': 370
+      z: 0
+      embeds: []
+    52de3d6a-166c-4c49-bd29-b1bd2e58ba0f:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 210
+        'y': 370
+      z: 0
+      embeds: []
+    18fdf439-8e0d-4d99-9a12-01beabc83af9:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 440
+        'y': 370
+      z: 0
+      embeds: []
+    4b813756-3391-49cd-99c2-33217b200bef:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 670
+        'y': 370
+      z: 0
+      embeds: []
+    c83d9771-bf5c-4cee-b196-75f0ed4372df:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 900
+        'y': 370
+      z: 0
+      embeds: []
+    c02d7a8e-0d59-41da-9222-cd0066e122c5:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 1130
+        'y': 370
+      z: 0
+      embeds: []
+    c7b9410d-1cfc-46bc-a356-1530be1d0c37:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 50
+        'y': 430
+      z: 0
+      embeds: []
+    ed56751e-702c-4d77-9b0f-156eec52a8a4:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 110
+        'y': 490
+      z: 0
+      embeds: []
+    60f0ee04-1eb9-4079-aacb-2601a9e7bc8c:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 270
+        'y': 430
+      z: 0
+      embeds: []
+    94cfb9d2-1695-4f9d-9485-ba88417c325b:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 330
+        'y': 490
+      z: 0
+      embeds: []
+    f82b0419-56d5-43ad-bfb1-ea3dff95158c:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 500
+        'y': 430
+      z: 0
+      embeds: []
+    f4147c5d-0657-4766-b7ea-4f64232ff37c:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 560
+        'y': 490
+      z: 0
+      embeds: []
+    cf7da47f-ad46-4d26-aaf1-adb2ccd271ca:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 730
+        'y': 430
+      z: 0
+      embeds: []
+    ee29921d-169a-4ca3-9301-14a75b2885d1:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 790
+        'y': 490
+      z: 0
+      embeds: []
+    65315ebc-0b98-4eec-af32-f685e2a9b094:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 960
+        'y': 430
+      z: 0
+      embeds: []
+    934d7ef3-8614-4014-995c-6347200f3ce5:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 1020
+        'y': 490
+      z: 0
+      embeds: []
+    2ed2ecf2-8926-4d64-a635-dc74c534e6d8:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 1190
+        'y': 430
+      z: 0
+      embeds: []
+    d88cb20d-6155-4a30-8a0d-15c9572b2cc0:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 1250
+        'y': 490
+      z: 0
+      embeds: []
+Resources:
+  FlowJoAIWebsocket:
+    Type: 'AWS::ApiGatewayV2::Api'
+    Properties:
+      Name: FlowJoAIWebsocket
+      ProtocolType: WEBSOCKET
+      RouteSelectionExpression: $request.body.action
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 9324f40b-1b8b-44f9-b62d-5783c0522204
+  ConnectRoute:
+    Type: 'AWS::ApiGatewayV2::Route'
+    Properties:
+      ApiId: !Ref FlowJoAIWebsocket
+      RouteKey: $connect
+      AuthorizationType: NONE
+      OperationName: ConnectRoute
+      RouteResponseSelectionExpression: $default
+      Target: !Join 
+        - /
+        - - integrations
+          - !Ref ConnectIntegration
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 47de0fec-cd5d-4ef8-a81d-e7ec7a6a3f0f
+    DependsOn:
+      - FlowJoAIWebsocket
+  DisconnectRoute:
+    Type: 'AWS::ApiGatewayV2::Route'
+    Properties:
+      ApiId: !Ref FlowJoAIWebsocket
+      RouteKey: $disconnect
+      AuthorizationType: NONE
+      OperationName: DisconnectRoute
+      RouteResponseSelectionExpression: $default
+      Target: !Join 
+        - /
+        - - integrations
+          - !Ref DisconnectIntegration
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 247248d5-2f96-409a-8185-f88ebb8803b2
+    DependsOn:
+      - FlowJoAIWebsocket
+  CreateEndpointRoute:
+    Type: 'AWS::ApiGatewayV2::Route'
+    Properties:
+      ApiId: !Ref FlowJoAIWebsocket
+      RouteKey: createEndpoint
+      AuthorizationType: NONE
+      OperationName: CreateEndpointRoute
+      RouteResponseSelectionExpression: $default
+      Target: !Join 
+        - /
+        - - integrations
+          - !Ref CreateEndpointIntegration
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: df3e6da2-dd4d-47ff-8f4b-caad248be434
+    DependsOn:
+      - FlowJoAIWebsocket
+  PredictRoute:
+    Type: 'AWS::ApiGatewayV2::Route'
+    Properties:
+      ApiId: !Ref FlowJoAIWebsocket
+      RouteKey: predict
+      AuthorizationType: NONE
+      OperationName: PredictRoute
+      RouteResponseSelectionExpression: $default
+      Target: !Join 
+        - /
+        - - integrations
+          - !Ref PredictIntegration
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 51f2ec74-5639-4672-b234-ef9bf5734fa8
+    DependsOn:
+      - FlowJoAIWebsocket
+  StartTrainingJobRoute:
+    Type: 'AWS::ApiGatewayV2::Route'
+    Properties:
+      ApiId: !Ref FlowJoAIWebsocket
+      RouteKey: startTrainingJob
+      AuthorizationType: NONE
+      OperationName: StartTrainingJobRoute
+      RouteResponseSelectionExpression: $default
+      Target: !Join 
+        - /
+        - - integrations
+          - !Ref StartTrainingJobIntegration
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 711f65c0-fa11-4d1d-89a2-c3abb54d73da
+    DependsOn:
+      - FlowJoAIWebsocket
+  UpdateModelRoute:
+    Type: 'AWS::ApiGatewayV2::Route'
+    Properties:
+      ApiId: !Ref FlowJoAIWebsocket
+      RouteKey: updateModel
+      AuthorizationType: NONE
+      OperationName: UpdateModelRoute
+      RouteResponseSelectionExpression: $default
+      Target: !Join 
+        - /
+        - - integrations
+          - !Ref UpdateModelIntegration
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 717fb9d4-473f-4beb-935f-f44ba714dbe0
+    DependsOn:
+      - FlowJoAIWebsocket
+  ConnectIntegration:
+    Type: 'AWS::ApiGatewayV2::Integration'
+    Properties:
+      ApiId: !Ref FlowJoAIWebsocket
+      Description: Connect Integration
+      IntegrationType: AWS_PROXY
+      IntegrationUri: >-
+        arn:aws:apigateway:us-east-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-2:914873542326:function:flowjoai-client-connect/invocations
+      CredentialsArn: 'arn:aws:iam::914873542326:role/dynamo-lambda-crud'
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 5821bb65-2630-40ac-b625-30fd69de029e
+  DisconnectIntegration:
+    Type: 'AWS::ApiGatewayV2::Integration'
+    Properties:
+      ApiId: !Ref FlowJoAIWebsocket
+      Description: Disconnect Integration
+      IntegrationType: AWS_PROXY
+      IntegrationUri: >-
+        arn:aws:apigateway:us-east-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-2:914873542326:function:flowjoai-client-disconnect/invocations
+      CredentialsArn: 'arn:aws:iam::914873542326:role/dynamo-lambda-crud'
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 52de3d6a-166c-4c49-bd29-b1bd2e58ba0f
+  CreateEndpointIntegration:
+    Type: 'AWS::ApiGatewayV2::Integration'
+    Properties:
+      ApiId: !Ref FlowJoAIWebsocket
+      Description: Create Ednpoint Integration
+      IntegrationType: AWS_PROXY
+      IntegrationUri: >-
+        arn:aws:apigateway:us-east-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-2:914873542326:function:flowjoai-create-endpoint/invocations
+      CredentialsArn: 'arn:aws:iam::914873542326:role/dynamo-lambda-crud'
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 18fdf439-8e0d-4d99-9a12-01beabc83af9
+  PredictIntegration:
+    Type: 'AWS::ApiGatewayV2::Integration'
+    Properties:
+      ApiId: !Ref FlowJoAIWebsocket
+      Description: Predict Integration
+      IntegrationType: AWS_PROXY
+      IntegrationUri: >-
+        arn:aws:apigateway:us-east-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-2:914873542326:function:flowjoai-predict/invocations
+      CredentialsArn: 'arn:aws:iam::914873542326:role/dynamo-lambda-crud'
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 4b813756-3391-49cd-99c2-33217b200bef
+  StartTrainingJobIntegration:
+    Type: 'AWS::ApiGatewayV2::Integration'
+    Properties:
+      ApiId: !Ref FlowJoAIWebsocket
+      Description: Start Training Job Integration
+      IntegrationType: AWS_PROXY
+      IntegrationUri: >-
+        arn:aws:apigateway:us-east-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-2:914873542326:function:flowjoai-start-training-job/invocations
+      CredentialsArn: 'arn:aws:iam::914873542326:role/dynamo-lambda-crud'
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: c83d9771-bf5c-4cee-b196-75f0ed4372df
+  UpdateModelIntegration:
+    Type: 'AWS::ApiGatewayV2::Integration'
+    Properties:
+      ApiId: !Ref FlowJoAIWebsocket
+      Description: Update Model Integration
+      IntegrationType: AWS_PROXY
+      IntegrationUri: >-
+        arn:aws:apigateway:us-east-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-2:914873542326:function:flowjoai-update-model/invocations
+      CredentialsArn: 'arn:aws:iam::914873542326:role/dynamo-lambda-crud'
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: c02d7a8e-0d59-41da-9222-cd0066e122c5
+  ConnectIntegrationResponse:
+    Type: 'AWS::ApiGatewayV2::IntegrationResponse'
+    Properties:
+      ApiId: !Ref FlowJoAIWebsocket
+      IntegrationId: !Ref ConnectIntegration
+      IntegrationResponseKey: /200/
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: c7b9410d-1cfc-46bc-a356-1530be1d0c37
+  ConnectRouteResponse:
+    Type: 'AWS::ApiGatewayV2::RouteResponse'
+    Properties:
+      RouteId: !Ref ConnectRoute
+      ApiId: !Ref FlowJoAIWebsocket
+      RouteResponseKey: $default
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: ed56751e-702c-4d77-9b0f-156eec52a8a4
+  DisconnectIntegrationResponse:
+    Type: 'AWS::ApiGatewayV2::IntegrationResponse'
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 60f0ee04-1eb9-4079-aacb-2601a9e7bc8c
+    Properties:
+      ApiId: !Ref FlowJoAIWebsocket
+      IntegrationId: !Ref DisconnectIntegration
+      IntegrationResponseKey: /200/
+  DisconnectRouteResponse:
+    Type: 'AWS::ApiGatewayV2::RouteResponse'
+    Properties:
+      RouteId: !Ref DisconnectRoute
+      ApiId: !Ref FlowJoAIWebsocket
+      RouteResponseKey: $default
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 94cfb9d2-1695-4f9d-9485-ba88417c325b
+  CreateEndpointIntegrationResponse:
+    Type: 'AWS::ApiGatewayV2::IntegrationResponse'
+    Properties:
+      ApiId: !Ref FlowJoAIWebsocket
+      IntegrationId: !Ref CreateEndpointIntegration
+      IntegrationResponseKey: /200/
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: f82b0419-56d5-43ad-bfb1-ea3dff95158c
+  CreateEndpointRouteResponse:
+    Type: 'AWS::ApiGatewayV2::RouteResponse'
+    Properties:
+      RouteId: !Ref CreateEndpointRoute
+      ApiId: !Ref FlowJoAIWebsocket
+      RouteResponseKey: $default
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: f4147c5d-0657-4766-b7ea-4f64232ff37c
+  PredictIntegrationResponse:
+    Type: 'AWS::ApiGatewayV2::IntegrationResponse'
+    Properties:
+      ApiId: !Ref FlowJoAIWebsocket
+      IntegrationId: !Ref PredictIntegration
+      IntegrationResponseKey: /200/
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: cf7da47f-ad46-4d26-aaf1-adb2ccd271ca
+  PredictRouteResponse:
+    Type: 'AWS::ApiGatewayV2::RouteResponse'
+    Properties:
+      RouteId: !Ref PredictRoute
+      ApiId: !Ref FlowJoAIWebsocket
+      RouteResponseKey: $default
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: ee29921d-169a-4ca3-9301-14a75b2885d1
+  StartTrainingJobIntegrationResponse:
+    Type: 'AWS::ApiGatewayV2::IntegrationResponse'
+    Properties:
+      ApiId: !Ref FlowJoAIWebsocket
+      IntegrationId: !Ref StartTrainingJobIntegration
+      IntegrationResponseKey: /200/
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 65315ebc-0b98-4eec-af32-f685e2a9b094
+  StartTrainingJobRouteResponse:
+    Type: 'AWS::ApiGatewayV2::RouteResponse'
+    Properties:
+      RouteId: !Ref StartTrainingJobRoute
+      ApiId: !Ref FlowJoAIWebsocket
+      RouteResponseKey: $default
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 934d7ef3-8614-4014-995c-6347200f3ce5
+  UpdateModelIntegrationResponse:
+    Type: 'AWS::ApiGatewayV2::IntegrationResponse'
+    Properties:
+      ApiId: !Ref FlowJoAIWebsocket
+      IntegrationId: !Ref UpdateModelIntegration
+      IntegrationResponseKey: /200/
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 2ed2ecf2-8926-4d64-a635-dc74c534e6d8
+  UpdateModelRouteResponse:
+    Type: 'AWS::ApiGatewayV2::RouteResponse'
+    Properties:
+      RouteId: !Ref UpdateModelRoute
+      ApiId: !Ref FlowJoAIWebsocket
+      RouteResponseKey: $default
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: d88cb20d-6155-4a30-8a0d-15c9572b2cc0
