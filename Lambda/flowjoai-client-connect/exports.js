@@ -2,7 +2,6 @@ const AWS = require('aws-sdk');
 const documentClient = new AWS.DynamoDB.DocumentClient();
 const crypto = require("crypto");
 
-// Generate unique id with no external dependencies
 const generateUUID = () => crypto.randomBytes(16).toString("hex");
 
 exports.handler = async(event, context, callback) => {
