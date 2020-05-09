@@ -4,7 +4,7 @@ resource "aws_iam_role" "iam_for_lambda" {
 }
 
 resource "aws_iam_role_policy" "lambda_policy" {
-  name = "lambda_policy"
+  name = "connect_lambda_policy"
   role = aws_iam_role.iam_for_lambda.id
   policy = file("../terraform/modules/Lambda/flowjoai-client-connect/iam/lambda_policy.json")
 }

@@ -19,11 +19,6 @@ output "flowjoai-websocket" {
 ###############################################################################################
 
 
-resource "aws_apigatewayv2_route" "disconnectRoute" {
-  api_id    = aws_apigatewayv2_api.websocket.id
-  route_key = "$disconnect"
-}
-
 resource "aws_apigatewayv2_route" "createEndpointRoute" {
   api_id    = aws_apigatewayv2_api.websocket.id
   route_key = "createEndpoint"
@@ -97,3 +92,28 @@ resource "aws_apigatewayv2_route" "connectRoute" {
 }
 
 ######## ------ onConnect ------ ######## END
+
+###############################################################################################
+
+######## ------ onDisconnect ------ ######## START
+
+module "flowjoai_client_disconnect" {
+  source = "../../Lambda/flowjoai-client-disconnect"
+}
+
+resource "aws_apigatewayv2_integration" "disconnectIntegration" {
+  api_id             = aws_apigatewayv2_api.websocket.id
+  integration_type   = "AWS_PROXY"
+  description        = "Disconnect Integration"
+  integration_uri    = module.flowjoai_client_disconnect.disconnectFunction.invoke_arn
+  integration_method = "POST"
+}
+
+resource "aws_apigatewayv2_route" "disconnectRoute" {
+  api_id         = aws_apigatewayv2_api.websocket.id
+  route_key      = "$disconnect"
+  operation_name = "disconnectRoute"
+  target         = "integrations/${aws_apigatewayv2_integration.disconnectIntegration.id}"
+}
+
+######## ------ onDisconnect ------ ######## END
