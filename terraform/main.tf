@@ -22,3 +22,7 @@ module "flowjoai_clients" {
 }
 
 ###############################################################################################
+
+module "flowjoai_bucket" {
+  source = "./modules/S3/flowjoai_bucket"
+}

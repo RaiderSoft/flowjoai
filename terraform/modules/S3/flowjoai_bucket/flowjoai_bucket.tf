@@ -1,6 +1,6 @@
 
-resource "aws_s3_bucket" "flowjoai-bucket" {
-  bucket = "flowjoai-bucket"
+resource "aws_s3_bucket" "flowjoai_bucket" {
+  bucket = "flowjoai_bucket"
   acl    = "private"
 
   tags = {
@@ -10,34 +10,38 @@ resource "aws_s3_bucket" "flowjoai-bucket" {
 }
 
 resource "aws_s3_bucket_object" "outputs" {
-    bucket = "flowjoai-bucket"
+    bucket = "flowjoai_bucket"
     acl    = "private"
     key    = "outputs/"
 //    source = "nul"
-    depends_on = [aws_s3_bucket.flowjoai-bucket]
+    depends_on = [aws_s3_bucket.flowjoai_bucket]
 }
 
 resource "aws_s3_bucket_object" "training" {
-    bucket = "flowjoai-bucket"
+    bucket = "flowjoai_bucket"
     acl    = "private"
     key    = "training/"
 //    source = "nul"
-    depends_on = [aws_s3_bucket.flowjoai-bucket]
+    depends_on = [aws_s3_bucket.flowjoai_bucket]
 }
 
 resource "aws_s3_bucket_object" "v1_outputs" {
-    bucket = "flowjoai-bucket"
+    bucket = "flowjoai_bucket"
     acl    = "private"
     key    = "outputs/v1/"
 //    source = "nul"
-    depends_on = [aws_s3_bucket.flowjoai-bucket]
+    depends_on = [aws_s3_bucket.flowjoai_bucket]
 }
 
 resource "aws_s3_bucket_object" "v1_training" {
-    bucket = "flowjoai-bucket"
+    bucket = "flowjoai_bucket"
     acl    = "private"
     key    = "training/v1/"
 //    source = "nul"
-    depends_on = [aws_s3_bucket.flowjoai-bucket]
+    depends_on = [aws_s3_bucket.flowjoai_bucket]
 }
 
+
+output "flowjoai_bucket" {
+  value = aws_s3_bucket.flowjoai_bucket
+}
