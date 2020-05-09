@@ -1,11 +1,7 @@
-provider "aws" {
-  profile    = "default"
-  region     = "us-east-2"
-}
 resource "aws_dynamodb_table" "flowjoai-models" {
   name           = "models"
   billing_mode   = "PROVISIONED"
-   read_capacity  = 10
+  read_capacity  = 10
   write_capacity = 10
   hash_key       = "uuid"
   range_key      = "created"
@@ -20,10 +16,10 @@ resource "aws_dynamodb_table" "flowjoai-models" {
     type = "S"
   }
 
-  ttl {
-    attribute_name = "TimeToExist"
-    enabled        = false
-  }
+  # ttl {
+  #   attribute_name = "TimeToExist"
+  #   enabled        = false
+  # }
 
   tags = {
     Name        = "flowjoai-models"
