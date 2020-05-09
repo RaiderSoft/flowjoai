@@ -1,10 +1,10 @@
 resource "aws_iam_role" "iam_for_lambda" {
-  name = "lambda_role"
+  name = "default_lambda_role"
   assume_role_policy = file("../terraform/modules/Lambda/flowjoai-default-route/iam/lambda_assume_policy.json")
 }
 
 resource "aws_iam_role_policy" "lambda_policy" {
-  name = "lambda_policy"
+  name = "default_lambda_policy"
   role = aws_iam_role.iam_for_lambda.id
   policy = file("../terraform/modules/Lambda/flowjoai-default-route/iam/lambda_policy.json")
 }
