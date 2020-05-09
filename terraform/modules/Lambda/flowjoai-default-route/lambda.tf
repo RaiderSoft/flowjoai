@@ -12,7 +12,7 @@ resource "aws_iam_role_policy" "lambda_policy" {
 resource "aws_lambda_function" "defaultRoute" {
   filename         = "../terraform/modules/Lambda/flowjoai-default-route/exports.js.zip"
   function_name    = "default-route"
-  role             = aws_iam_role.iam_for_lambda.arn
+  role             = aws_iam_role.flowjoai_default_route_iam_role.arn
   handler          = "exports.handler"
   runtime          = "nodejs12.x"
   source_code_hash = filebase64sha256("../terraform/modules/Lambda/flowjoai-default-route/exports.js.zip")

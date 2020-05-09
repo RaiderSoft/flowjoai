@@ -22,7 +22,7 @@ module "flowjoai_clients" {
 }
 
 ###############################################################################################
-
-module "flowjoai_bucket" {
+# NOTE: S3 only likes hyphens, no underscores
+module "flowjoai-bucket" {
   source = "./modules/S3/flowjoai_bucket"
 }
