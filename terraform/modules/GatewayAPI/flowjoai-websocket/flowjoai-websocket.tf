@@ -117,3 +117,78 @@ resource "aws_apigatewayv2_route" "disconnectRoute" {
 }
 
 ######## ------ onDisconnect ------ ######## END
+
+###############################################################################################
+
+######## ------ onMessage ------ ######## START
+
+module "flowjoai_client_onmessage" {
+  source = "../../Lambda/flowjoai-client-onmessage"
+}
+
+resource "aws_apigatewayv2_integration" "onMessageIntegration" {
+  api_id             = aws_apigatewayv2_api.websocket.id
+  integration_type   = "AWS_PROXY"
+  description        = "OnMessage Integration"
+  integration_uri    = module.flowjoai_client_onmessage.onMessageFunction.invoke_arn
+  integration_method = "POST"
+}
+
+resource "aws_apigatewayv2_route" "onMessageRoute" {
+  api_id         = aws_apigatewayv2_api.websocket.id
+  route_key      = "onMessage"
+  operation_name = "onMessageRoute"
+  target         = "integrations/${aws_apigatewayv2_integration.onMessageIntegration.id}"
+}
+
+######## ------ onMessage ------ ######## END
+
+###############################################################################################
+
+######## ------ createEndpoint ------ ######## START
+
+module "flowjoai_client_create_endpoint" {
+  source = "../../Lambda/flowjoai-create-endpoint"
+}
+
+resource "aws_apigatewayv2_integration" "createEndpointIntegration" {
+  api_id             = aws_apigatewayv2_api.websocket.id
+  integration_type   = "AWS_PROXY"
+  description        = "Create Endpoint Integration"
+  integration_uri    = module.flowjoai_client_create_endpoint.createEndpointFunction.invoke_arn
+  integration_method = "POST"
+}
+
+resource "aws_apigatewayv2_route" "createEndpointRoute" {
+  api_id         = aws_apigatewayv2_api.websocket.id
+  route_key      = "createEndpoint"
+  operation_name = "createEndpointRoute"
+  target         = "integrations/${aws_apigatewayv2_integration.createEndpointIntegration.id}"
+}
+
+######## ------ createEndpoint ------ ######## END
+
+###############################################################################################
+
+######## ------ createModel ------ ######## START
+
+module "flowjoai_client_create_model" {
+  source = "../../Lambda/flowjoai-create-model"
+}
+
+resource "aws_apigatewayv2_integration" "createModelIntegration" {
+  api_id             = aws_apigatewayv2_api.websocket.id
+  integration_type   = "AWS_PROXY"
+  description        = "Create Model Integration"
+  integration_uri    = module.flowjoai_client_create_model.createModelFunction.invoke_arn
+  integration_method = "POST"
+}
+
+resource "aws_apigatewayv2_route" "createModelRoute" {
+  api_id         = aws_apigatewayv2_api.websocket.id
+  route_key      = "createModel"
+  operation_name = "createModelRoute"
+  target         = "integrations/${aws_apigatewayv2_integration.createModelIntegration.id}"
+}
+
+######## ------ createModel ------ ######## END
