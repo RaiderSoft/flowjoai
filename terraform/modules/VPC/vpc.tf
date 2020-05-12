@@ -81,3 +81,20 @@ resource "aws_route_table_association" "c" {
 
 ######## ------ subnet ------ ######## END
 ###############################################################################################
+
+# data "aws_vpc" "vpc" {
+#   filter {
+#     name   = "tag:Name"
+#     values = [var.vpc_name]
+#   }
+# }
+# data "aws_subnet_ids" "private" {
+#   tags = {
+#     "type" = "private"
+#   }
+#   vpc_id = data.aws_vpc.vpc.id
+# }
+# data "aws_subnet" "private" {
+#   count = length(data.aws_subnet_ids.private.ids)
+#   id    = tolist(data.aws_subnet_ids.private.ids)[count.index]
+# }
