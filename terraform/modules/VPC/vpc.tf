@@ -98,3 +98,6 @@ resource "aws_route_table_association" "c" {
 #   count = length(data.aws_subnet_ids.private.ids)
 #   id    = tolist(data.aws_subnet_ids.private.ids)[count.index]
 # }
+# If you want to reference directly from subnet ids
+# data.aws_subnet_ids.private.*.ids
+
