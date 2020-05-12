@@ -99,5 +99,12 @@ resource "aws_route_table_association" "c" {
 #   id    = tolist(data.aws_subnet_ids.private.ids)[count.index]
 # }
 # If you want to reference directly from subnet ids
-# data.aws_subnet_ids.private.*.ids
+# data.aws_subnet_ids.private.*.ids //VERIFY SYNTAX
+# data.aws_subnet.private.*.id      //
+
+
+# Terraform can diff you something is misconfiged compared to AWS
+# Just tells you if you have something working on AWS 
+# terraform import // RENAME everything // Check if destroys
+# terraform up / apply 
 
