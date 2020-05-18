@@ -7,6 +7,12 @@ provider "aws" {
 
 ###############################################################################################
 
+module "flowjoai-vpc" {
+  source = "./modules/VPC"
+}
+
+###############################################################################################
+
 module "flowjoai-websocket" {
   source = "./modules/GatewayAPI/flowjoai-websocket"
 }
@@ -25,4 +31,7 @@ module "flowjoai_clients" {
 # NOTE: S3 only likes hyphens, no underscores
 module "flowjoai-bucket" {
   source = "./modules/S3/flowjoai_bucket"
+}
+module "flowjoai-ecr" {
+  source = "./modules/ECR"
 }
