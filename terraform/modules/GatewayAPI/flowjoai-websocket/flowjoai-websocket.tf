@@ -260,7 +260,7 @@ resource "aws_apigatewayv2_route" "updateModelRoute" {
   api_id         = aws_apigatewayv2_api.websocket.id
   route_key      = "updateModel"
   operation_name = "updateModelRoute"
-  target         = "integrations/${aws_apigatewayv2_integration.updateModel.id}"
+  target         = "integrations/${aws_apigatewayv2_integration.updateModelIntegration.id}"
 }
 ######## ------ updateModelRoute ------ ######## END
 

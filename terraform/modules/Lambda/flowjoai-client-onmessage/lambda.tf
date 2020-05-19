@@ -5,8 +5,8 @@ resource "aws_iam_role" "flowjoai-client-onmessage-lambda-role" {
 
 resource "aws_iam_role_policy" "flowjoai-client-onmessage-lambda-policy" {
   name = "flowjoai-client-onmessage-lambda-policy"
-  role = aws_iam_role.iam_for_lambda.id
-  policy = file("iam/lambda_assume_policy.json")
+  role = aws_iam_role.flowjoai-client-onmessage-lambda-role.id
+  policy = file("../terraform/modules/Lambda/flowjoai-client-onmessage/iam/lambda_policy.json")
 }
 
 resource "aws_lambda_function" "onMessageFunction" {

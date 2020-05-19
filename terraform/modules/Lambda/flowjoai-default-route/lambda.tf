@@ -12,7 +12,7 @@ resource "aws_iam_role_policy" "flowjoai-default-route-lambda-policy" {
 resource "aws_lambda_function" "defaultRoute" {
   filename         = "exports.js.zip"
   function_name    = "default-route"
-  role             = aws_iam_role.flowjoai_default_route_lambda_role.arn
+  role             = aws_iam_role.flowjoai-default-route-lambda-role.arn
   handler          = "exports.handler"
   runtime          = "nodejs12.x"
   source_code_hash = filebase64sha256("exports.js.zip")
