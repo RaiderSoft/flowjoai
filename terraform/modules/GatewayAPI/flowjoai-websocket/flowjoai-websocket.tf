@@ -32,12 +32,26 @@ resource "aws_apigatewayv2_integration" "defaultIntegration" {
   integration_method = "POST"
 }
 
-resource "aws_apigatewayv2_route" "default" {
+resource "aws_apigatewayv2_route" "defaultRoute" {
   api_id         = aws_apigatewayv2_api.websocket.id
   route_key      = "$default"
   operation_name = "connectRoute"
   target         = "integrations/${aws_apigatewayv2_integration.defaultIntegration.id}"
 }
+
+resource "aws_apigatewayv2_integration_response" "defaultIntegrationResponse" {
+  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
+  integration_id           = "${aws_apigatewayv2_integration.defaultIntegration.id}"
+  integration_response_key = "/200/"
+}
+
+resource "aws_apigatewayv2_route_response" "defaultRouteResponse" {
+  api_id             = "${aws_apigatewayv2_api.websocket.id}"
+  route_id           = "${aws_apigatewayv2_route.defaultRoute.id}"
+  route_response_key = "$default"
+}
+
+
 ######## ------ defaultRoute ------ ######## END
 
 ###############################################################################################
@@ -61,6 +75,18 @@ resource "aws_apigatewayv2_route" "connectRoute" {
   route_key      = "$connect"
   operation_name = "connectRoute"
   target         = "integrations/${aws_apigatewayv2_integration.connectIntegration.id}"
+}
+
+resource "aws_apigatewayv2_integration_response" "connectIntegrationResponse" {
+  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
+  integration_id           = "${aws_apigatewayv2_integration.connectIntegration.id}"
+  integration_response_key = "/200/"
+}
+
+resource "aws_apigatewayv2_route_response" "connectRouteResponse" {
+  api_id             = "${aws_apigatewayv2_api.websocket.id}"
+  route_id           = "${aws_apigatewayv2_route.connectRoute.id}"
+  route_response_key = "$default"
 }
 
 ######## ------ onConnect ------ ######## END
@@ -88,6 +114,18 @@ resource "aws_apigatewayv2_route" "disconnectRoute" {
   target         = "integrations/${aws_apigatewayv2_integration.disconnectIntegration.id}"
 }
 
+resource "aws_apigatewayv2_integration_response" "disconnectIntegrationResponse" {
+  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
+  integration_id           = "${aws_apigatewayv2_integration.disconnectIntegration.id}"
+  integration_response_key = "/200/"
+}
+
+resource "aws_apigatewayv2_route_response" "disconnectRouteResponse" {
+  api_id             = "${aws_apigatewayv2_api.websocket.id}"
+  route_id           = "${aws_apigatewayv2_route.disconnectRoute.id}"
+  route_response_key = "$default"
+}
+
 ######## ------ onDisconnect ------ ######## END
 
 ###############################################################################################
@@ -111,6 +149,18 @@ resource "aws_apigatewayv2_route" "onMessageRoute" {
   route_key      = "onMessage"
   operation_name = "onMessageRoute"
   target         = "integrations/${aws_apigatewayv2_integration.onMessageIntegration.id}"
+}
+
+resource "aws_apigatewayv2_integration_response" "onMessageIntegrationResponse" {
+  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
+  integration_id           = "${aws_apigatewayv2_integration.onMessageIntegration.id}"
+  integration_response_key = "/200/"
+}
+
+resource "aws_apigatewayv2_route_response" "onMessageRouteResponse" {
+  api_id             = "${aws_apigatewayv2_api.websocket.id}"
+  route_id           = "${aws_apigatewayv2_route.onMessageRoute.id}"
+  route_response_key = "$default"
 }
 
 ######## ------ onMessage ------ ######## END
@@ -138,6 +188,18 @@ resource "aws_apigatewayv2_route" "createEndpointRoute" {
   target         = "integrations/${aws_apigatewayv2_integration.createEndpointIntegration.id}"
 }
 
+resource "aws_apigatewayv2_integration_response" "createEndpointIntegrationResponse" {
+  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
+  integration_id           = "${aws_apigatewayv2_integration.createEndpointIntegration.id}"
+  integration_response_key = "/200/"
+}
+
+resource "aws_apigatewayv2_route_response" "createEnpointRouteResponse" {
+  api_id             = "${aws_apigatewayv2_api.websocket.id}"
+  route_id           = "${aws_apigatewayv2_route.createEndpointRoute.id}"
+  route_response_key = "$default"
+}
+
 ######## ------ createEndpoint ------ ######## END
 
 ###############################################################################################
@@ -161,6 +223,18 @@ resource "aws_apigatewayv2_route" "createModelRoute" {
   route_key      = "createModel"
   operation_name = "createModelRoute"
   target         = "integrations/${aws_apigatewayv2_integration.createModelIntegration.id}"
+}
+
+resource "aws_apigatewayv2_integration_response" "createModelIntegrationResponse" {
+  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
+  integration_id           = "${aws_apigatewayv2_integration.createModelIntegration.id}"
+  integration_response_key = "/200/"
+}
+
+resource "aws_apigatewayv2_route_response" "createModelRouteResponse" {
+  api_id             = "${aws_apigatewayv2_api.websocket.id}"
+  route_id           = "${aws_apigatewayv2_route.createModelRoute.id}"
+  route_response_key = "$default"
 }
 
 ######## ------ createModel ------ ######## END
@@ -188,6 +262,18 @@ resource "aws_apigatewayv2_route" "modelsStreamRoute" {
   target         = "integrations/${aws_apigatewayv2_integration.modelsStreamIntegration.id}"
 }
 
+resource "aws_apigatewayv2_integration_response" "modelStreamIntegrationResponse" {
+  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
+  integration_id           = "${aws_apigatewayv2_integration.modelsStreamIntegration.id}"
+  integration_response_key = "/200/"
+}
+
+resource "aws_apigatewayv2_route_response" "modelStreamRouteResponse" {
+  api_id             = "${aws_apigatewayv2_api.websocket.id}"
+  route_id           = "${aws_apigatewayv2_route.modelsStreamRoute.id}"
+  route_response_key = "$default"
+}
+
 ######## ------ modelsStream ------ ######## END
 
 ###############################################################################################
@@ -211,6 +297,18 @@ resource "aws_apigatewayv2_route" "predictRoute" {
   route_key      = "predict"
   operation_name = "predictRoute"
   target         = "integrations/${aws_apigatewayv2_integration.predictIntegration.id}"
+}
+
+resource "aws_apigatewayv2_integration_response" "predictIntegrationResponse" {
+  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
+  integration_id           = "${aws_apigatewayv2_integration.predictIntegration.id}"
+  integration_response_key = "/200/"
+}
+
+resource "aws_apigatewayv2_route_response" "predictRouteResponse" {
+  api_id             = "${aws_apigatewayv2_api.websocket.id}"
+  route_id           = "${aws_apigatewayv2_route.predictRoute.id}"
+  route_response_key = "$default"
 }
 
 ######## ------ predict ------ ######## END
@@ -238,6 +336,18 @@ resource "aws_apigatewayv2_route" "startTrainingJobRoute" {
   target         = "integrations/${aws_apigatewayv2_integration.startTrainingJobIntegration.id}"
 }
 
+resource "aws_apigatewayv2_integration_response" "startTrainingJobIntegrationResponse" {
+  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
+  integration_id           = "${aws_apigatewayv2_integration.startTrainingJobIntegration.id}"
+  integration_response_key = "/200/"
+}
+
+resource "aws_apigatewayv2_route_response" "startTrainingJobRouteResponse" {
+  api_id             = "${aws_apigatewayv2_api.websocket.id}"
+  route_id           = "${aws_apigatewayv2_route.startTrainingJobRoute.id}"
+  route_response_key = "$default"
+}
+
 ######## ------ startTrainingJob ------ ######## END
 
 ###############################################################################################
@@ -261,6 +371,18 @@ resource "aws_apigatewayv2_route" "updateModelRoute" {
   route_key      = "updateModel"
   operation_name = "updateModelRoute"
   target         = "integrations/${aws_apigatewayv2_integration.updateModelIntegration.id}"
+}
+
+resource "aws_apigatewayv2_integration_response" "updateModelIntegrationResponse" {
+  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
+  integration_id           = "${aws_apigatewayv2_integration.updateModelIntegration.id}"
+  integration_response_key = "/200/"
+}
+
+resource "aws_apigatewayv2_route_response" "updateeModelRouteResponse" {
+  api_id             = "${aws_apigatewayv2_api.websocket.id}"
+  route_id           = "${aws_apigatewayv2_route.updateModelRoute.id}"
+  route_response_key = "$default"
 }
 ######## ------ updateModelRoute ------ ######## END
 
