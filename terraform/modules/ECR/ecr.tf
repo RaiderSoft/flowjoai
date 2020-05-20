@@ -1,17 +1,17 @@
 resource "aws_ecr_repository" "fjai-train" {
-  name                 = "flowjoai-pytorch-training-v1"
-  image_tag_mutability = "MUTABLE"
+  name                 = "${var.app_name}-pytorch-training-v1-${terraform.workspace}"
+  image_tag_mutability = var.tag_mutability
 
   image_scanning_configuration {
-    scan_on_push = false
+    scan_on_push = var.scan_on_push
   }
 }
 
 resource "aws_ecr_repository" "fjai-infer" {
-  name                 = "flowjoai-pytorch-inference-v1"
-  image_tag_mutability = "MUTABLE"
+  name                 = "${var.app_name}-pytorch-inference-v1-${terraform.workspace}"
+  image_tag_mutability = var.tag_mutability
 
   image_scanning_configuration {
-    scan_on_push = false
+    scan_on_push = var.scan_on_push
   }
 }

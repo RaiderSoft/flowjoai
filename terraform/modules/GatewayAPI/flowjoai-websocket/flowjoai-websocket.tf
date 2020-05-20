@@ -5,7 +5,7 @@
 ######## ------ websocket setup ------ ######## START
 
 resource "aws_apigatewayv2_api" "websocket" {
-  name                       = "flowjoai-websocket-v1"
+  name                       = "${var.app_name}-websocket-v1-${terraform.workspace}"
   protocol_type              = "WEBSOCKET"
   route_selection_expression = "$request.body.action"
 }
@@ -22,6 +22,7 @@ output "flowjoai-websocket" {
 
 module "flowjoai_default_route" {
   source = "../../Lambda/flowjoai-default-route"
+  app_name = var.app_name
 }
 
 resource "aws_apigatewayv2_integration" "defaultIntegration" {
@@ -40,14 +41,14 @@ resource "aws_apigatewayv2_route" "defaultRoute" {
 }
 
 resource "aws_apigatewayv2_integration_response" "defaultIntegrationResponse" {
-  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
-  integration_id           = "${aws_apigatewayv2_integration.defaultIntegration.id}"
+  api_id                   = aws_apigatewayv2_api.websocket.id
+  integration_id           = aws_apigatewayv2_integration.defaultIntegration.id
   integration_response_key = "/200/"
 }
 
 resource "aws_apigatewayv2_route_response" "defaultRouteResponse" {
-  api_id             = "${aws_apigatewayv2_api.websocket.id}"
-  route_id           = "${aws_apigatewayv2_route.defaultRoute.id}"
+  api_id             = aws_apigatewayv2_api.websocket.id
+  route_id           = aws_apigatewayv2_route.defaultRoute.id
   route_response_key = "$default"
 }
 
@@ -60,6 +61,7 @@ resource "aws_apigatewayv2_route_response" "defaultRouteResponse" {
 
 module "flowjoai_client_connect" {
   source = "../../Lambda/flowjoai-client-connect"
+  app_name = var.app_name
 }
 
 resource "aws_apigatewayv2_integration" "connectIntegration" {
@@ -78,14 +80,14 @@ resource "aws_apigatewayv2_route" "connectRoute" {
 }
 
 resource "aws_apigatewayv2_integration_response" "connectIntegrationResponse" {
-  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
-  integration_id           = "${aws_apigatewayv2_integration.connectIntegration.id}"
+  api_id                   = aws_apigatewayv2_api.websocket.id
+  integration_id           = aws_apigatewayv2_integration.connectIntegration.id
   integration_response_key = "/200/"
 }
 
 resource "aws_apigatewayv2_route_response" "connectRouteResponse" {
-  api_id             = "${aws_apigatewayv2_api.websocket.id}"
-  route_id           = "${aws_apigatewayv2_route.connectRoute.id}"
+  api_id             = aws_apigatewayv2_api.websocket.id
+  route_id           = aws_apigatewayv2_route.connectRoute.id
   route_response_key = "$default"
 }
 
@@ -97,6 +99,7 @@ resource "aws_apigatewayv2_route_response" "connectRouteResponse" {
 
 module "flowjoai_client_disconnect" {
   source = "../../Lambda/flowjoai-client-disconnect"
+  app_name = var.app_name
 }
 
 resource "aws_apigatewayv2_integration" "disconnectIntegration" {
@@ -115,14 +118,14 @@ resource "aws_apigatewayv2_route" "disconnectRoute" {
 }
 
 resource "aws_apigatewayv2_integration_response" "disconnectIntegrationResponse" {
-  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
-  integration_id           = "${aws_apigatewayv2_integration.disconnectIntegration.id}"
+  api_id                   = aws_apigatewayv2_api.websocket.id
+  integration_id           = aws_apigatewayv2_integration.disconnectIntegration.id
   integration_response_key = "/200/"
 }
 
 resource "aws_apigatewayv2_route_response" "disconnectRouteResponse" {
-  api_id             = "${aws_apigatewayv2_api.websocket.id}"
-  route_id           = "${aws_apigatewayv2_route.disconnectRoute.id}"
+  api_id             = aws_apigatewayv2_api.websocket.id
+  route_id           = aws_apigatewayv2_route.disconnectRoute.id
   route_response_key = "$default"
 }
 
@@ -134,6 +137,7 @@ resource "aws_apigatewayv2_route_response" "disconnectRouteResponse" {
 
 module "flowjoai_client_onmessage" {
   source = "../../Lambda/flowjoai-client-onmessage"
+  app_name = var.app_name
 }
 
 resource "aws_apigatewayv2_integration" "onMessageIntegration" {
@@ -152,14 +156,14 @@ resource "aws_apigatewayv2_route" "onMessageRoute" {
 }
 
 resource "aws_apigatewayv2_integration_response" "onMessageIntegrationResponse" {
-  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
-  integration_id           = "${aws_apigatewayv2_integration.onMessageIntegration.id}"
+  api_id                   = aws_apigatewayv2_api.websocket.id
+  integration_id           = aws_apigatewayv2_integration.onMessageIntegration.id
   integration_response_key = "/200/"
 }
 
 resource "aws_apigatewayv2_route_response" "onMessageRouteResponse" {
-  api_id             = "${aws_apigatewayv2_api.websocket.id}"
-  route_id           = "${aws_apigatewayv2_route.onMessageRoute.id}"
+  api_id             = aws_apigatewayv2_api.websocket.id
+  route_id           = aws_apigatewayv2_route.onMessageRoute.id
   route_response_key = "$default"
 }
 
@@ -171,6 +175,7 @@ resource "aws_apigatewayv2_route_response" "onMessageRouteResponse" {
 
 module "flowjoai_client_create_endpoint" {
   source = "../../Lambda/flowjoai-create-endpoint"
+  app_name = var.app_name
 }
 
 resource "aws_apigatewayv2_integration" "createEndpointIntegration" {
@@ -189,14 +194,14 @@ resource "aws_apigatewayv2_route" "createEndpointRoute" {
 }
 
 resource "aws_apigatewayv2_integration_response" "createEndpointIntegrationResponse" {
-  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
-  integration_id           = "${aws_apigatewayv2_integration.createEndpointIntegration.id}"
+  api_id                   = aws_apigatewayv2_api.websocket.id
+  integration_id           = aws_apigatewayv2_integration.createEndpointIntegration.id
   integration_response_key = "/200/"
 }
 
 resource "aws_apigatewayv2_route_response" "createEnpointRouteResponse" {
-  api_id             = "${aws_apigatewayv2_api.websocket.id}"
-  route_id           = "${aws_apigatewayv2_route.createEndpointRoute.id}"
+  api_id             = aws_apigatewayv2_api.websocket.id
+  route_id           = aws_apigatewayv2_route.createEndpointRoute.id
   route_response_key = "$default"
 }
 
@@ -208,6 +213,7 @@ resource "aws_apigatewayv2_route_response" "createEnpointRouteResponse" {
 
 module "flowjoai_client_create_model" {
   source = "../../Lambda/flowjoai-create-model"
+  app_name = var.app_name
 }
 
 resource "aws_apigatewayv2_integration" "createModelIntegration" {
@@ -226,14 +232,14 @@ resource "aws_apigatewayv2_route" "createModelRoute" {
 }
 
 resource "aws_apigatewayv2_integration_response" "createModelIntegrationResponse" {
-  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
-  integration_id           = "${aws_apigatewayv2_integration.createModelIntegration.id}"
+  api_id                   = aws_apigatewayv2_api.websocket.id
+  integration_id           = aws_apigatewayv2_integration.createModelIntegration.id
   integration_response_key = "/200/"
 }
 
 resource "aws_apigatewayv2_route_response" "createModelRouteResponse" {
-  api_id             = "${aws_apigatewayv2_api.websocket.id}"
-  route_id           = "${aws_apigatewayv2_route.createModelRoute.id}"
+  api_id             = aws_apigatewayv2_api.websocket.id
+  route_id           = aws_apigatewayv2_route.createModelRoute.id
   route_response_key = "$default"
 }
 
@@ -245,6 +251,7 @@ resource "aws_apigatewayv2_route_response" "createModelRouteResponse" {
 
 module "flowjoai_models_stream" {
   source = "../../Lambda/flowjoai-models-stream"
+  app_name = var.app_name
 }
 
 resource "aws_apigatewayv2_integration" "modelsStreamIntegration" {
@@ -263,14 +270,14 @@ resource "aws_apigatewayv2_route" "modelsStreamRoute" {
 }
 
 resource "aws_apigatewayv2_integration_response" "modelStreamIntegrationResponse" {
-  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
-  integration_id           = "${aws_apigatewayv2_integration.modelsStreamIntegration.id}"
+  api_id                   = aws_apigatewayv2_api.websocket.id
+  integration_id           = aws_apigatewayv2_integration.modelsStreamIntegration.id
   integration_response_key = "/200/"
 }
 
 resource "aws_apigatewayv2_route_response" "modelStreamRouteResponse" {
-  api_id             = "${aws_apigatewayv2_api.websocket.id}"
-  route_id           = "${aws_apigatewayv2_route.modelsStreamRoute.id}"
+  api_id             = aws_apigatewayv2_api.websocket.id
+  route_id           = aws_apigatewayv2_route.modelsStreamRoute.id
   route_response_key = "$default"
 }
 
@@ -282,6 +289,7 @@ resource "aws_apigatewayv2_route_response" "modelStreamRouteResponse" {
 
 module "flowjoai_predict" {
   source = "../../Lambda/flowjoai-predict"
+  app_name = var.app_name
 }
 
 resource "aws_apigatewayv2_integration" "predictIntegration" {
@@ -300,14 +308,14 @@ resource "aws_apigatewayv2_route" "predictRoute" {
 }
 
 resource "aws_apigatewayv2_integration_response" "predictIntegrationResponse" {
-  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
-  integration_id           = "${aws_apigatewayv2_integration.predictIntegration.id}"
+  api_id                   = aws_apigatewayv2_api.websocket.id
+  integration_id           = aws_apigatewayv2_integration.predictIntegration.id
   integration_response_key = "/200/"
 }
 
 resource "aws_apigatewayv2_route_response" "predictRouteResponse" {
-  api_id             = "${aws_apigatewayv2_api.websocket.id}"
-  route_id           = "${aws_apigatewayv2_route.predictRoute.id}"
+  api_id             = aws_apigatewayv2_api.websocket.id
+  route_id           = aws_apigatewayv2_route.predictRoute.id
   route_response_key = "$default"
 }
 
@@ -319,6 +327,7 @@ resource "aws_apigatewayv2_route_response" "predictRouteResponse" {
 
 module "flowjoai_start_training_job" {
   source = "../../Lambda/flowjoai-start-training-job"
+  app_name = var.app_name
 }
 
 resource "aws_apigatewayv2_integration" "startTrainingJobIntegration" {
@@ -337,14 +346,14 @@ resource "aws_apigatewayv2_route" "startTrainingJobRoute" {
 }
 
 resource "aws_apigatewayv2_integration_response" "startTrainingJobIntegrationResponse" {
-  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
-  integration_id           = "${aws_apigatewayv2_integration.startTrainingJobIntegration.id}"
+  api_id                   = aws_apigatewayv2_api.websocket.id
+  integration_id           = aws_apigatewayv2_integration.startTrainingJobIntegration.id
   integration_response_key = "/200/"
 }
 
 resource "aws_apigatewayv2_route_response" "startTrainingJobRouteResponse" {
-  api_id             = "${aws_apigatewayv2_api.websocket.id}"
-  route_id           = "${aws_apigatewayv2_route.startTrainingJobRoute.id}"
+  api_id             = aws_apigatewayv2_api.websocket.id
+  route_id           = aws_apigatewayv2_route.startTrainingJobRoute.id
   route_response_key = "$default"
 }
 
@@ -356,6 +365,7 @@ resource "aws_apigatewayv2_route_response" "startTrainingJobRouteResponse" {
 
 module "flowjoai_update_model" {
   source = "../../Lambda/flowjoai-update-model"
+  app_name = var.app_name
 }
 
 resource "aws_apigatewayv2_integration" "updateModelIntegration" {
@@ -374,14 +384,14 @@ resource "aws_apigatewayv2_route" "updateModelRoute" {
 }
 
 resource "aws_apigatewayv2_integration_response" "updateModelIntegrationResponse" {
-  api_id                   = "${aws_apigatewayv2_api.websocket.id}"
-  integration_id           = "${aws_apigatewayv2_integration.updateModelIntegration.id}"
+  api_id                   = aws_apigatewayv2_api.websocket.id
+  integration_id           = aws_apigatewayv2_integration.updateModelIntegration.id
   integration_response_key = "/200/"
 }
 
 resource "aws_apigatewayv2_route_response" "updateeModelRouteResponse" {
-  api_id             = "${aws_apigatewayv2_api.websocket.id}"
-  route_id           = "${aws_apigatewayv2_route.updateModelRoute.id}"
+  api_id             = aws_apigatewayv2_api.websocket.id
+  route_id           = aws_apigatewayv2_route.updateModelRoute.id
   route_response_key = "$default"
 }
 ######## ------ updateModelRoute ------ ######## END
