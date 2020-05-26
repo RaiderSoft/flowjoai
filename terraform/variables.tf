@@ -1,9 +1,9 @@
 variable "aws_region" {
   type        = string
-  description = "AWS region to build in"
+  description = "us-east-2"
 }
 
 variable "app_name" {
   type        = string
-  description = "Application name"
+  description = "flowjoai"
 }
