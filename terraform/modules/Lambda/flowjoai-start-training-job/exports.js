@@ -6,29 +6,32 @@ const crypto = require("crypto");
 
 const generateUUID = () => crypto.randomBytes(16).toString("hex");
 
-exports.handler = async(event) => {
+exports.handler = async(event, context) => {
     try {
         const uuid = generateUUID();
-        
+        const arnList = context.invokedFunctionArn.split(':')
+        const accountId = arnList[4];
+        const region = arnList[3];
+
         const params = {
             TrainingJobName: uuid,
             AlgorithmSpecification: {
-                AlgorithmName: 'arn:aws:sagemaker:us-east-2:914873542326:algorithm/flowjoai-v1',
+                AlgorithmName: `arn:aws:sagemaker:${region}:${accountId}:algorithm/flowjoai-v1`,
                 TrainingInputMode: 'File',
                 EnableSageMakerMetricsTimeSeries: false
             },
             HyperParameters: { epochs: '10', lr: '0.01' },
-            RoleArn: 'arn:aws:iam::914873542326:role/dynamo-lambda-crud',
+            RoleArn: `arn:aws:iam::${accountId}:role/dynamo-lambda-crud`,
             InputDataConfig: [{
                 ChannelName: 'TRAINING',
                 DataSource: {
                     S3DataSource: {
                         S3DataType: "S3Prefix",
-                        S3Uri: "s3://flowjoai-v1/training/v1",
+                        S3Uri: "s3://flowjoai-bucket/training/v1",
                     }
                 }
             }],
-            OutputDataConfig: { S3OutputPath: 's3://flowjoai-v1/outputs/v1' },
+            OutputDataConfig: { S3OutputPath: 's3://flowjoai-bucket/outputs/v1' },
             ResourceConfig: { InstanceType: 'ml.m4.xlarge', InstanceCount: 1, VolumeSizeInGB: 1 },
             StoppingCondition: { MaxRuntimeInSeconds: 36000 }
 

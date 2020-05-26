@@ -9,7 +9,7 @@ resource "aws_iam_role_policy" "flowjoai-client-create-endpoint-lambda-policy" {
   policy = file("${path.module}/iam/lambda_policy.json")
 }
 
-data "archive_file" "create-endpointFunction" {
+data "archive_file" "createEndpointFunction" {
   type        = "zip"
   source_file = "${path.module}/exports.js"
   output_path = "${path.module}/exports.js.zip"
@@ -25,5 +25,5 @@ resource "aws_lambda_function" "createEndpointFunction" {
 }
 
 output "createEndpointFunction" {
-  value = aws_lambda_function.create-endpointFunction
+  value = aws_lambda_function.createEndpointFunction
 }

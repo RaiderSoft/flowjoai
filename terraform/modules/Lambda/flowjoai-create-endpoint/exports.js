@@ -5,7 +5,7 @@ exports.handler = async(event) => {
     try {
         console.log(event)
         const { uuid } = JSON.parse(event).body
-    console.log(JSON.parse(event))
+
         const createEndpointConfigParams = {
             EndpointConfigName: uuid,
             ProductionVariants: [{

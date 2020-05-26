@@ -7,7 +7,7 @@ resource "aws_ecr_repository" "fjai-train" {
   }
 }
 
-resource "aws_ecr_repository" "fjai-infer" {
+resource "aws_ecr_repository" "fjai-inference" {
   name                 = lower("${var.app_name}-pytorch-inference-v1-${terraform.workspace}")
   image_tag_mutability = var.tag_mutability
 
