@@ -13,5 +13,6 @@ variable "tag_mutability" {
 
 variable "app_name" {
   type        = string
-  description = "flowjoai"
+  default     = "flowjoai"
+  description = "Application name"
 }
