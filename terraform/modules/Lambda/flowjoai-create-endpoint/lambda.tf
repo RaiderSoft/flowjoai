@@ -1,21 +1,27 @@
-resource "aws_iam_role" "flowjoai-create-endpoint-lambda-role" {
-  name = "flowjoai-create-endpoint-lambda-role"
-  assume_role_policy = file("../terraform/modules/Lambda/flowjoai-create-endpoint/iam/lambda_assume_policy.json")
+resource "aws_iam_role" "flowjoai-client-create-endpoint-lambda-role" {
+  name               = "${var.app_name}-${terraform.workspace}-client-create-endpoint-lambda-role"
+  assume_role_policy = file("${path.module}/iam/lambda_assume_policy.json")
 }
 
-resource "aws_iam_role_policy" "flowjoai-create-endpoint-lambda-policy" {
-  name = "flowjoai-create-endpoint-lambda-policy"
-  role = aws_iam_role.flowjoai-create-endpoint-lambda-role.id
-  policy = file("../terraform/modules/Lambda/flowjoai-create-endpoint/iam/lambda_policy.json")
+resource "aws_iam_role_policy" "flowjoai-client-create-endpoint-lambda-policy" {
+  name   = "${var.app_name}-${terraform.workspace}-client-create-endpoint-lambda-policy"
+  role   = aws_iam_role.flowjoai-client-create-endpoint-lambda-role.id
+  policy = file("${path.module}/iam/lambda_policy.json")
+}
+
+data "archive_file" "createEndpointFunction" {
+  type        = "zip"
+  source_file = "${path.module}/exports.js"
+  output_path = "${path.module}/exports.js.zip"
 }
 
 resource "aws_lambda_function" "createEndpointFunction" {
-  filename         = "../terraform/modules/Lambda/flowjoai-create-endpoint/exports.js.zip"
-  function_name    = "create-endpoint"
-  role             = aws_iam_role.flowjoai-create-endpoint-lambda-role.arn
+  filename         = data.archive_file.createEndpointFunction.output_path
+  function_name    = "${var.app_name}-client-create-endpoint-${terraform.workspace}"
+  role             = aws_iam_role.flowjoai-client-create-endpoint-lambda-role.arn
   handler          = "exports.handler"
   runtime          = "nodejs12.x"
-  source_code_hash = filebase64sha256("../terraform/modules/Lambda/flowjoai-create-endpoint/exports.js.zip")
+  source_code_hash = data.archive_file.createEndpointFunction.output_base64sha256
 }
 
 output "createEndpointFunction" {

@@ -7,7 +7,7 @@
 ######## ------ flowjoai_models ------ ######## START
 
 resource "aws_dynamodb_table" "flowjoai_models" {
-  name           = "models"
+  name           = "${var.app_name}-models-${terraform.workspace}"
   billing_mode   = "PROVISIONED"
   read_capacity  = 10
   write_capacity = 10
